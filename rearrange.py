@@ -5,7 +5,7 @@ import sys #to get argv
 def random_python_rearrange(input_words,number_of_output_words):
     # create an empty list
     list_of_words = []
-    shuffle(list_of_words)
+    #shuffle(list_of_words)
     #print(number_of_output_words)
 
     # create a loop that will run number_of_output_words times
@@ -19,7 +19,7 @@ def random_python_rearrange(input_words,number_of_output_words):
         list_of_words.append(input_words[random_index])
         # remove the word from input_words
         input_words.pop(random_index)
-        print(list_of_words)
+        #print(list_of_words)
     # return the rearranged word list
     return (' '.join(list_of_words))
 
@@ -30,7 +30,7 @@ def random_python_rearrange(input_words,number_of_output_words):
 
 
 if __name__ == '__main__':#start from here
-    print(shuffle(sys.argv))
+    #print(shuffle(sys.argv))
     rearrangements = sys.argv #to get the list from command line
 #    print(rearrangements)
     rearrangements = sys.argv[1:]
