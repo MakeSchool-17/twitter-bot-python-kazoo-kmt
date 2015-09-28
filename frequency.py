@@ -1,3 +1,4 @@
+# Advice from Alan: It's better to separate "read" as a function
 # Question: How should I name each function and variables(little bit confusing...)
 # Other Questions: see below
 import sys

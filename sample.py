@@ -1,5 +1,7 @@
 import sys
 import random
+import frequency
+# frequency.histogram()
 
 def sample(filename):
     text_file = open(filename, "r")
@@ -9,7 +11,7 @@ def sample(filename):
     # print(list_of_words[random_index])
     return(list_of_words[random_index])
 
-def samle_probability(filename):
+def sample_probability(filename):
     text_file = open(filename, "r")
     list_of_words = text_file.read().split()
 
@@ -26,4 +28,4 @@ def samle_probability(filename):
 if __name__ == '__main__':
     filename = sys.argv[1]
     print(sample(filename))
-    print(samle_probability(filename))
+    print(sample_probability(filename))
