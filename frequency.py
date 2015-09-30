@@ -1,3 +1,5 @@
+# This is 2. Dictionary in tutorial5
+
 # Advice from Alan: It's better to separate "read" as a function
 # Question: How should I name each function and variables(little bit confusing...)
 # Other Questions: see below
@@ -9,7 +11,8 @@ def histogram(filename):
     source_text = open(filename, "r")
     words_incl_mark = source_text.read()
     # mark = re.compile("[^a-zA-Z0-9_\-]")
-    mark = re.compile(r"[^a-zA-Z0-9_\-]")
+    # mark = re.compile(r"[^a-zA-Z0-9_\-]")
+    mark = re.compile(r"[^a-zA-Z0-9]")
     # HOW CAN I TREAT Apostrophi????? IS IT OK TO IGNORE? e.g. You're
     words_wo_mark = mark.sub(" ", words_incl_mark)
     words_wo_mark_wo_upper = words_wo_mark.lower()
