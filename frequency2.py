@@ -3,16 +3,16 @@ import sys
 import re
 import timeit
 
-
-def readfile(filename):
-    source_text = open(filename, "r")
-    words_incl_mark = source_text.read()
-    mark = re.compile(r"[^a-zA-Z0-9]")
-    words_wo_mark = mark.sub(" ", words_incl_mark)
-    words_wo_mark_wo_upper = words_wo_mark.lower()
-    words_list = words_wo_mark_wo_upper.split()
-    return(words_list)
-
+#
+# def readfile(filename):
+#     source_text = open(filename, "r")
+#     words_incl_mark = source_text.read()
+#     mark = re.compile(r"[^a-zA-Z0-9]")
+#     words_wo_mark = mark.sub(" ", words_incl_mark)
+#     words_wo_mark_wo_upper = words_wo_mark.lower()
+#     words_list = words_wo_mark_wo_upper.split()
+#     return(words_list)
+#
 
 def find(word, hgram):
     for index, pair in enumerate(hgram):
@@ -77,4 +77,4 @@ if __name__ == '__main__':
 
     iterations = 10000
     result = timer.timeit(number=iterations)
-    print("frequency() time for 1q0,000-word histogram: " + str(result))
+    print("frequency() time for 10,000-word histogram: " + str(result))
