@@ -1,5 +1,4 @@
 # This is 3. linked list in tutorial5
-# Stacked..........Need advice from instrudtor
 import sys
 import re
 import timeit
@@ -24,11 +23,12 @@ class Node(object):
 
 
 class LinkedList(object):
-    def __int__(self, head=None):
+    def __init__(self, head=None):
         self.head = head
 
-    def insert(self, data):
-        new_node = Node(data)
+    def insert(self, key, value):
+        key_value_pair = (key, value)
+        new_node = Node(key_value_pair)
         new_node.set_next(self.head)
         self.head = new_node
 
@@ -40,86 +40,88 @@ class LinkedList(object):
             current = current.get_next()
         return count
 
-    def search(self, data):
+
+    def search(self, key):
         current = self.head
         found = False
         while current and found is False:
-            if current.data == data:
+            data_key = current.data[0]
+            if data_key == key:
                 found = True
             else:
                 current = current.next_node
-        if current is None:
-            raise ValueError("Data not in list")
         return current
 
-    def delete(self, data):
-        current = self.head
-        previous = None
-        found = False
-        while current and found is False:
-            if current.get_data() == data:
-                found = True
-            else:
-                previous = current
-                current = current.get_next()
-        if current is None:
-            raise ValueError("Data not in list")
-        if previous is None:
-            self.head = current.get_next()
+
+    def update(self, key, value):
+        current = self.search(key)
+        if current is not None:
+            current.data = (key, value)
+
+
+    def get(self, key):
+        current = self.search(key)
+        if current is not None:
+            return current.data[1]
         else:
-            previous.set_next(current.get_next())
+            return None
+
+    #
+    # def delete(self, data):
+    #     current = self.head
+    #     previous = None
+    #     found = False
+    #     while current and found is False:
+    #         if current.get_data() == data:
+    #             found = True
+    #         else:
+    #             previous = current
+    #             current = current.get_next()
+    #     if current is None:
+    #         raise ValueError("Data not in list")
+    #     if previous is None:
+    #         self.head = current.get_next()
+    #     else:
+    #         previous.set_next(current.get_next())
 
 
-    def list(length):
-        dict_words = '/usr/share/dict/words'
-        words_str = open(dict_words, 'r').read()
-        all_words = words_str.split("\n")
-        return all_words[0:length]
+def list(length):
+    dict_words = '/usr/share/dict/words'
+    words_str = open(dict_words, 'r').read()
+    all_words = words_str.split("\n")
+    return all_words[0:length]
 
 
-    def histogram(words):
-        words_list = LinkedList()
-        for word in words:
-            current = self.head
-            found = False
-            while current and found is False:
-                if current.data == data:
-                    found = True
-                    before_add = words_list.get_data(word)
-                    count = before_add[1]
-                    words_list.data = (word, count + 1)
-                else:
-                    current = current.next_node
-            if current is None:
-                    words_list.insert((word, 1))
-        return words_list
+def histogram(words):
+    words_list = LinkedList()
+    for word in words:
+        node_for_test = words_list.search(word)
+        if node_for_test is None:
+            words_list.insert(word, 1)
+        else:
+            words_list.update(word, words_list.get(word) + 1)
+    return words_list
 
 
-    def frequency(word, hgram):
-        found = False
-        while hgram and found is False:
-            if hgram.data == word:
-                found = True
-                count = hgram.data[1]
-                return count
-            else:
-                hgram = hgram.next_node
-        if hgram is None:
-            return 0
+def frequency(word, hgram):
+    count = hgram.get(word)
+    if count is not None:
+        return count
+    else:
+        return 0
 
 
 if __name__ == '__main__':
-    hundred_words = LinkedList.list(100)
-    ten_thousand_words = LinkedList.list(10000)
+    hundred_words = list(100)
+    ten_thousand_words = list(10000)
 
-    hundred_hgram = LinkedList.histogram(hundred_words)
-    ten_thousand_hgram = linkedList.histogram(ten_thousand_words)
+    hundred_hgram = histogram(hundred_words)
+    ten_thousand_hgram = histogram(ten_thousand_words)
 
-    print(hundred_hgram)
-
-'''
-    hundred_search = hundred_words[-1]
-    ten_thousand_search = ten_thousand_words[-1]
+    # hundred_search = hundred_words[-1]
+    # ten_thousand_search = ten_thousand_words[-1]
+    hundred_search = hundred_words[1]
+    ten_thousand_search = ten_thousand_words[1]
 
     stmt = "frequency('{}', hundred_hgram)".format(hundred_search)
     setup = "from __main__ import frequency, hundred_hgram"
@@ -136,4 +138,3 @@ if __name__ == '__main__':
     iterations = 10000
     result = timer.timeit(number=iterations)
     print("frequency() time for 10,000-word histogram: " + str(result))
-'''
