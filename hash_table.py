@@ -1,17 +1,17 @@
-import timeit
-
-
+# import timeit
 class HashTable(object):
     def __init__(self):
         self.size = 8
-        self.bucket = [LinkedList()] * self.size
+        # QUESTION: WHY IT DOESN'T WORK?????
+        #self.bucket = [LinkedList()] * self.size
+        self.bucket = []
+        for i in range(self.size):
+            self.bucket.append(LinkedList())
         # QUESTION: WHY IT DOESN'T WORK?????
         # number_of_bucket = 8
         # bucket = []
         # for i in range(0, number_of_bucket):
         #     bucket.append(LinkedList())
-        #     print(i)
-        #     print( [] for i in range(number_of_bucket))
 
     # def __str__(self):
     #     pass
@@ -32,11 +32,14 @@ class HashTable(object):
             value = self.bucket[i].get(key)
             if value is not None:
                 break
-        # FIXME
-        # WHY THERE ARE VALUE IN ALL BUCKET??I TRIED TO APPEND FOR ONLY ONE BUCKET....
-        print(self.bucket[0].get(key))
-        print(self.bucket[1].get(key))
-        print(self.bucket[2].get(key))
+        # print(self.bucket[0].get(key))
+        # print(self.bucket[1].get(key))
+        # print(self.bucket[2].get(key))
+        # print(self.bucket[3].get(key))
+        # print(self.bucket[4].get(key))
+        # print(self.bucket[5].get(key))
+        # print(self.bucket[6].get(key))
+        # print(self.bucket[7].get(key))
         return value
 
     def update(self, key, value):
@@ -206,15 +209,15 @@ if __name__ == '__main__':
     # result = timer.timeit(number=iterations)
     # print("frequency() time for 10,000-word histogram: " + str(result))
     roman = HashTable()
-    roman.set('I', 1)
+    roman.set('I', 2)
     roman.get('I')          # => 1
-    # print(roman.get('I'))
-    # roman.set('V', 5)
-    # roman.set('X', 9)
-    # roman.update('X', 10)   # Oops, let's fix that.
-    # roman.get('X')          # => 10
-    # print(roman.get('X'))          # => 10
-    # roman.keys()            # => ['I', 'V', 'X']
-    # print(roman.keys())            # => ['I', 'V', 'X']
-    # roman.values()
-    # print(roman.values())
+    print(roman.get('I'))
+    roman.set('V', 5)
+    roman.set('X', 9)
+    roman.update('X', 10)   # Oops, let's fix that.
+    roman.get('X')          # => 10
+    print(roman.get('X'))          # => 10
+    roman.keys()            # => ['I', 'V', 'X']
+    print(roman.keys())            # => ['I', 'V', 'X']
+    roman.values()
+    print(roman.values())
