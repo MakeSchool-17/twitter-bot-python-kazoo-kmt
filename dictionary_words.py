@@ -1,15 +1,10 @@
-## HOW CAN I OMMIT "\n"????????
-# This is the draft version. In order to test in a small scale, I use "text_for_test.txt"
 import random
 import sys
 
 def pickup_words(number_of_output_words):
 
     text_file = open('text_for_test.txt', "r")
-    # list_of_words = text_file.read().split(' ')
     list_of_words = list(text_file)
-    ## also working by using readlines
-    #list_of_words = text_file.readlines()
     chosen_words = []
     for i in range(0, number_of_output_words):
         random_index = random.randint(0, len(list_of_words) - 1)
@@ -24,16 +19,3 @@ if __name__ == '__main__':
     actually_number = int(number) #convert to integer
     words = pickup_words(actually_number)
     print(words)
-
-# notes
-#    random.shuffle(list_of_words)
-#    list_of_number = [int(i) for i in range(list_of_words)]
-
-# notes
-# if __name__ == '__main__':
-#     number = sys.argv[1:]
-#     number = [int(i) for i in number]
-#     #my_list = ['4', '5', '6']
-#     #my_list = [4, 5, 6]
-#     #for my_number in my_list:
-#     #print(my_number)

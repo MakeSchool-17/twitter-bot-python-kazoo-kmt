@@ -25,7 +25,3 @@ if __name__ == '__main__':
 
     end_time = time.clock()
     print(end_time - start_time)
-    # wordname = sys.argv[2]
-    # words_dictionary = frequency.histogram(filename)
-    # number_unq_words = frequency.unique_words(words_dictionary)
-    # frequency_word = frequency.frequency(wordname, words_dictionary)

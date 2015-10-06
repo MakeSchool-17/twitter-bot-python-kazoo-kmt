@@ -1,5 +1,3 @@
-
-
 class Stack:
 
     def __init__(self):
@@ -31,10 +29,6 @@ class Stack:
             return None
         else:
             return self.head.data
-        # if self.head:
-        #     return self.head.data
-        # else:
-        #     return None
 
 
     def size(self):

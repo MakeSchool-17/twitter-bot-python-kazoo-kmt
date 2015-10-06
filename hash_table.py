@@ -1,64 +1,33 @@
-# import timeit
 class HashTable(object):
     def __init__(self):
         self.size = 8
-        # QUESTION: WHY IT DOESN'T WORK????? -> it use same pointer
-        # self.bucket = [LinkedList()] * self.size
         self.bucket = []
         for i in range(self.size):
             self.bucket.append(LinkedList())
-        # QUESTION: WHY IT DOESN'T WORK????? -> need to use class variables style
-        # number_of_bucket = 8
-        # bucket = []
-        # for i in range(0, number_of_bucket):
-        #     bucket.append(LinkedList())
-
-    # def __str__(self):
-    #     pass
 
     def set(self, key, value):
         bucket_number = hash(key) % self.size
         print(bucket_number)
         self.bucket[bucket_number].append(key, value)
-        # test = self.bucket[bucket_number].append(key, value)
-        # print('key:', key)
-        # print('value:', value)
-        # print('bucket_number:', bucket_number)
-        # print('self.bucket[bucket_number]:', self.bucket[bucket_number])
-        # print('self.bucket[bucket_number].append(key, value):', test)
 
     def get(self, key):
         for i in range(0, self.size):
             value = self.bucket[i].get(key)
             if value is not None:
                 break
-        # print(self.bucket[0].get(key))
-        # print(self.bucket[1].get(key))
-        # print(self.bucket[2].get(key))
-        # print(self.bucket[3].get(key))
-        # print(self.bucket[4].get(key))
-        # print(self.bucket[5].get(key))
-        # print(self.bucket[6].get(key))
-        # print(self.bucket[7].get(key))
         return value
 
     def update(self, key, value):
         for i in range(0, self.size):
             self.bucket[i].update(key, value)
-            # target_node = self.bucket[i].find(key)
-            # if target_node is not None:
-            #     target_node.update(key, value)
 
     def keys(self):
         keys_list = []
         for i in range(0, self.size):
             new_key = self.bucket[i].head
             while new_key:
-                # print(i)
-                # print(new_key)
                 keys_list.append(new_key.data[0])
                 new_key = new_key.next
-
         return keys_list
 
     def values(self):
@@ -182,32 +151,6 @@ def frequency(word, hgram):
 
 
 if __name__ == '__main__':
-    #　IF I SEPARATE MAIN(), IT CAUSE ERROR LIKE: CANNOT IMPORT HUNDRED_HGRAM. WHY IT HAPPENED??????
-    # def main():
-    # hundred_words = list(100)
-    # ten_thousand_words = list(10000)
-    #
-    # hundred_hgram = histogram(hundred_words)
-    # ten_thousand_hgram = histogram(ten_thousand_words)
-    #
-    # hundred_search = hundred_words[-1]
-    # ten_thousand_search = ten_thousand_words[-1]
-    #
-    # stmt = "frequency('{}', hundred_hgram)".format(hundred_search)
-    # setup = "from __main__ import frequency, hundred_hgram"
-    # timer = timeit.Timer(stmt, setup=setup)
-    #
-    # iterations = 10000
-    # result = timer.timeit(number=iterations)
-    # print("frequency() time for 100-word histogram: " + str(result))
-    #
-    # stmt = "frequency('{}', ten_thousand_hgram)".format(ten_thousand_search)
-    # setup = "from __main__ import frequency, ten_thousand_hgram"
-    # timer = timeit.Timer(stmt, setup=setup)
-    #
-    # iterations = 10000
-    # result = timer.timeit(number=iterations)
-    # print("frequency() time for 10,000-word histogram: " + str(result))
     roman = HashTable()
     roman.set('I', 2)
     roman.get('I')          # => 1

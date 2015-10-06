@@ -1,4 +1,4 @@
-# This is 3. linked list in tutorial5
+# linked list
 import sys
 import re
 import timeit
@@ -66,24 +66,6 @@ class LinkedList(object):
         else:
             return None
 
-    #
-    # def delete(self, data):
-    #     current = self.head
-    #     previous = None
-    #     found = False
-    #     while current and found is False:
-    #         if current.get_data() == data:
-    #             found = True
-    #         else:
-    #             previous = current
-    #             current = current.get_next()
-    #     if current is None:
-    #         raise ValueError("Data not in list")
-    #     if previous is None:
-    #         self.head = current.get_next()
-    #     else:
-    #         previous.set_next(current.get_next())
-
 
 def list(length):
     dict_words = '/usr/share/dict/words'
@@ -118,8 +100,6 @@ if __name__ == '__main__':
     hundred_hgram = histogram(hundred_words)
     ten_thousand_hgram = histogram(ten_thousand_words)
 
-    # hundred_search = hundred_words[-1]
-    # ten_thousand_search = ten_thousand_words[-1]
     hundred_search = hundred_words[1]
     ten_thousand_search = ten_thousand_words[1]
 

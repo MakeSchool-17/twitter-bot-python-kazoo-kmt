@@ -16,12 +16,6 @@ def parsing():
     # words_list = words_wo_mark_wo_upper.split()
     # return(words_list)
 
-    # words_dictionary = {}
-    # for words_key in words_list:
-    #     words_dictionary[words_key] = words_dictionary.get(words_key, 0) + 1
-    # return(words_dictionary)
-
-
 
 if __name__ == '__main__':
     # print("=========NEW TEST==========")
