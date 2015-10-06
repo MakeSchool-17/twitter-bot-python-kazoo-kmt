@@ -2,12 +2,12 @@
 class HashTable(object):
     def __init__(self):
         self.size = 8
-        # QUESTION: WHY IT DOESN'T WORK?????
-        #self.bucket = [LinkedList()] * self.size
+        # QUESTION: WHY IT DOESN'T WORK????? -> it use same pointer
+        # self.bucket = [LinkedList()] * self.size
         self.bucket = []
         for i in range(self.size):
             self.bucket.append(LinkedList())
-        # QUESTION: WHY IT DOESN'T WORK?????
+        # QUESTION: WHY IT DOESN'T WORK????? -> need to use class variables style
         # number_of_bucket = 8
         # bucket = []
         # for i in range(0, number_of_bucket):
