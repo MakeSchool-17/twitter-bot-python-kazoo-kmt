@@ -1,13 +1,13 @@
 class HashTable(object):
     def __init__(self):
-        self.size = 8
+        self.size = 100  # FIXME you can change number of buckets
         self.bucket = []
         for i in range(self.size):
             self.bucket.append(LinkedList())
 
     def set(self, key, value):
         bucket_number = hash(key) % self.size
-        print(bucket_number)
+        # print(bucket_number)
         self.bucket[bucket_number].append(key, value)
 
     def get(self, key):

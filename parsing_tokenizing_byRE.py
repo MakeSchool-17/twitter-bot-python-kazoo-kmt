@@ -1,9 +1,9 @@
 # parsing and tokenize
 import re
-FILENAME = "corpus_obama.txt"
+# FILENAME = "corpus.txt"
 
-def parsing():
-    source_text = open(FILENAME, "r")
+def parsing(filename):
+    source_text = open(filename, "r")
     words_incl_mark = source_text.read()
     # mark = re.compile(r"[^a-zA-Z0-9]\-\'")
     # words_wo_mark = mark.sub(" ", words_incl_mark)

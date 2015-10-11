@@ -78,6 +78,22 @@ class LinkedList(object):
             current_node = current_node.next
         return count
 
+    def search(self, key):
+        current_node = self.head
+        found = False
+        while current_node and found is False:
+            data_key = current_node.data[0]
+            if data_key == key:
+                found = True
+            else:
+                current_node = current_node.next
+        return current_node
+
+    def update(self, key, value):
+        current_node = self.search(key)
+        if current_node is not None:
+            current_node.data = (key, value)
+
 
 def test_node():
     print('==== Node class tests =====')
