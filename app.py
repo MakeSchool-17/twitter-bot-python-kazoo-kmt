@@ -17,4 +17,3 @@ def tweet():
 
 if __name__ == '__main__':
     app.run()
-    # now testing
