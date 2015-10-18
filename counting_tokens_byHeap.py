@@ -34,6 +34,8 @@ class Heap(object):
             parent_index = current_index // 2
             current_node = self.list[current_index]
             parent_node = self.list[parent_index]
+            # [brian] The `and parent_node is not None` part is superfluous.
+            # If it's None you'll have already gotten a TypeError :)
             while current_node[0] > parent_node[0] and parent_node is not None:
                 self.swap(current_index, parent_index)
                 current_index = parent_index

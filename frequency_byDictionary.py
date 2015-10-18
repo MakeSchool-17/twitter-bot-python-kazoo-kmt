@@ -11,6 +11,20 @@ def histogram(filename):
     words_dictionary = {}
     for words_key in words_list:
         words_dictionary[words_key] = words_dictionary.get(words_key, 0) + 1
+
+    # [brian] The .get(key, default) is a neat trick, but python gives you
+    # an even easier option!
+
+    from collections import defaultdict
+    words_dictionary = defaultdict(int)
+    for words_key in words_list:
+        words_dictionary[words_key] += 1
+
+    # The defaultdict constructor accepts a function, and when the key isn't
+    # found calls that function instead of throwing an Exception. Here, `int`
+    # is a function which returns 0, the default value.
+    # https://docs.python.org/2/library/collections.html#collections.defaultdict
+
     return(words_dictionary)
 
 

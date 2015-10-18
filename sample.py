@@ -9,6 +9,9 @@ def sample(filename):
     random_index = random.randint(0, len(list_of_words) - 1)
     return(list_of_words[random_index])
 
+    # [brian] Why shuffle, and also pull from a random location?
+    # Shuffling is O(n), and seems like wasted effort here!
+
 def sample_probability(filename):
     text_file = open(filename, "r")
     list_of_words = text_file.read().split()

@@ -5,6 +5,9 @@ class HashTable(object):
         for i in range(self.size):
             self.bucket.append(LinkedList())
 
+        # [brian] You could also do:
+        self.bucket = [LinkedList() for _ in range(self.size)]
+
     def set(self, key, value):
         bucket_number = hash(key) % self.size
         # print(bucket_number)
